@@ -1,91 +1,106 @@
-# SpaceX Falcon 9 Landing Prediction
+# 🚀 SpaceX Falcon 9 Landing Prediction
 
-![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-blue?logo=pandas)
-![Plotly](https://img.shields.io/badge/Plotly-blue?logo=plotly)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-orange?logo=scikit-learn)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Plotly Dash](https://img.shields.io/badge/Plotly%20Dash-Interactive%20Dashboard-00416A?logo=plotly&logoColor=white)](https://dash.plotly.com/)
+[![Render](https://img.shields.io/badge/Render-Deployed-46E3B7?logo=render&logoColor=white)](https://spacex-falcon-9-landing-prediction-2.onrender.com/)
 
-## Project Overview
-
-This is an end-to-end data science capstone project. The goal is to predict the success of a SpaceX Falcon 9 first-stage landing. A successful landing significantly reduces launch costs (from over $160M to $62M), so this model can help a competitor company determine a more accurate bidding price against SpaceX.
-
-The project involves data collection via API and web scraping, data wrangling, exploratory data analysis (EDA), and the creation of an interactive dashboard. Finally, I built and evaluated several machine learning models to find the best-performing classifier for this task.
-
-## Key Features
-* **Data Collection Pipeline:** Scraped data from the SpaceX API and Wikipedia.
-* **In-Depth EDA:** Analyzed data using SQL, Pandas, Matplotlib, and Seaborn.
-* **Interactive Mapping:** Built interactive maps with Folium to visualize launch site success rates.
-* **Predictive Dashboard:** Created a fully interactive dashboard with Plotly Dash to explore the relationship between launch variables and success.
-* **Machine Learning:** Trained and evaluated 4 classification models, achieving **88.9%** validation accuracy with a Decision Tree.
+> **Live Dashboard:** [Click here to view the deployed app](https://spacex-falcon-9-landing-prediction-2.onrender.com/)
 
 ---
 
-## Interactive Dashboard (Plotly Dash)
+## 📖 Project Overview
 
-The final product is an interactive dashboard where a user can select a launch site and payload range to see the success rates and correlations in real-time.
+This end-to-end data science capstone project aims to predict the successful landing of the SpaceX Falcon 9 first stage. A successful landing significantly reduces launch costs (from ~$160M to ~$62M). By accurately predicting landing outcomes, competitor firms can optimize their bidding strategies against SpaceX.
 
-<p align="center">
-  <img width="748" alt="Dashboard Scatter Plot" src="https://user-images.githubusercontent.com/46462603/152729009-c2cdaba4-674c-4103-b540-e77ad3544a99.png">
-</p>
-<p align="center">
-  <img width="692" alt="Dashboard Pie Chart" src="https://user-images.githubusercontent.com/46462603/152729002-f731499b-aab8-46a1-b1c3-583c24ae909e.png">
-</p>
+This project demonstrates a complete Data Science pipeline:
+1.  **Data Extraction:** REST API queries and Web Scraping.
+2.  **Data Wrangling:** Cleaning, filtering, and SQL analysis.
+3.  **Visualization:** Interactive maps (Folium) and dynamic dashboards (Dash).
+4.  **Machine Learning:** Training and hyperparameter tuning of classification models to achieve **88.9% accuracy**.
 
 ---
 
-## Project Workflow
+## 📊 Interactive Dashboard
 
-The project is broken down into several notebooks, each covering a specific part of the data science pipeline.
+I developed a fully interactive web application using **Plotly Dash** to visualize launch success rates based on site selection and payload mass.
+
+| **Scatter Correlation Analysis** | **Launch Site Success Rates** |
+|:---:|:---:|
+| <img src="https://user-images.githubusercontent.com/46462603/152729009-c2cdaba4-674c-4103-b540-e77ad3544a99.png" width="100%"> | <img src="https://user-images.githubusercontent.com/46462603/152729002-f731499b-aab8-46a1-b1c3-583c24ae909e.png" width="100%"> |
+
+---
+
+## 🛠 Project Workflow
+
+The project follows a structured pipeline across multiple notebooks:
 
 ### 1. Data Collection
-* **SpaceX API:** Queried the SpaceX REST API to get Falcon 9 launch data. Filtered for Falcon 9 launches, handled missing values, and saved the initial dataset.
-    * *Notebook: `1_Data_Collection_API.ipynb`*
-* **Web Scraping:** Scraped a Wikipedia table for Falcon 9 launch records to gather additional data not present in the API.
-    * *Notebook: `2_Data_Collection_with_Web_Scraping.ipynb`*
+* **API Extraction:** Automated extraction from the [SpaceX REST API](https://api.spacexdata.com/v4) to gather core launch data.
+* **Web Scraping:** Utilized `BeautifulSoup` to scrape historical launch records from Wikipedia.
+    * 📂 *Notebooks: `1_Data_Collection_API.ipynb`, `2_Data_Collection_with_Web_Scraping.ipynb`*
 
-### 2. Data Wrangling & Exploratory Data Analysis (EDA)
-* **Pandas & SQL:** Cleaned and merged the datasets. Performed EDA using Pandas and SQL to understand the data, find the number of launches per site, and analyze mission outcomes.
-    * *Notebook: `3_EDA.ipynb`*
-    * *Notebook: `4_EDA_with_SQL.ipynb`*
+### 2. Exploratory Data Analysis (EDA)
+* **SQL & Pandas:** Performed rigorous data cleaning and SQL queries to identify trends in mission outcomes and payload distributions.
+* **Visualization:** Generated static plots (Seaborn/Matplotlib) and geospatial visualizations (Folium) to map launch site success probability.
+    * 📂 *Notebooks: `3_EDA.ipynb`, `4_EDA_with_SQL.ipynb`, `5_EDA_Visualization.ipynb`, `6_Interactive_Visual_Analytics_with_Folium_lab.ipynb`*
 
-### 3. Interactive Visualization
-* **Matplotlib & Seaborn:** Created static plots to visualize the relationship between features like `PayloadMass`, `LaunchSite`, and success rate.
-    * *Notebook: `5_EDA_Visualization.ipynb`*
-* **Folium (Interactive Maps):** Plotted launch sites on an interactive map and color-coded launch outcomes (success/failure) for each site.
-    * *Notebook: `6_Interactive_Visual_Analytics_with_Folium_lab.ipynb`*
-* **Plotly Dash (Dashboard):** Built the final interactive dashboard (shown above) to analyze success rates based on user-selected inputs for launch site and payload mass.
-    * *Script: `7_spacex_dash_app.py`*
-
-<p align="center">
-<img width="670" alt="Folium Map Example" src="https://user-images.githubusercontent.com/46462603/152728830-e7a4d921-706e-4040-af27-b4b27361f8c1.png">
-</p>
-
-### 4. Machine Learning Prediction
-* **Preprocessing:** Standardized the feature data using `StandardScaler` and split the dataset into training and testing sets.
-* **Model Training:** Trained four different classification models to predict the `Class` (landing success) of a launch:
-    1.  Logistic Regression
-    2.  Support Vector Machine (SVM)
-    3.  Decision Tree
-    4.  K-Nearest Neighbors (KNN)
-* **Hyperparameter Tuning:** Used `GridSearchCV` to find the best hyperparameters for each model.
-* **Evaluation:** Compared the models based on their validation accuracy and confusion matrices.
-    * *Notebook: `8_Machine_Learning_Prediction.ipynb`*
+### 3. Machine Learning & Prediction
+* **Preprocessing:** Applied `StandardScaler` and split data for training/testing.
+* **Model Selection:** Trained and evaluated four classifiers:
+    * Logistic Regression
+    * Support Vector Machines (SVM)
+    * Decision Tree Classifier
+    * K-Nearest Neighbors (KNN)
+* **Optimization:** Utilized `GridSearchCV` for hyperparameter tuning.
+    * 📂 *Notebook: `8_Machine_Learning_Prediction.ipynb`*
 
 ---
 
-## Results & Conclusion
+## 🏆 Model Results
 
-The Decision Tree classifier was the most effective model for this problem. After tuning, the models were ranked as follows based on their `GridSearchCV` best validation score:
+The **Decision Tree Classifier** outperformed other models, achieving the highest validation accuracy after hyperparameter tuning.
 
-| Model | Best Score (Accuracy) |
-| :--- | :--- |
-| **Decision Tree** | **0.8893** |
-| K-Nearest Neighbors (KNN) | 0.8482 |
-| Support Vector Machine (SVM) | 0.8482 |
-| Logistic Regression | 0.8464 |
+| Rank | Model | Accuracy (Validation) |
+| :--- | :--- | :--- |
+| 🥇 | **Decision Tree** | **88.93%** |
+| 🥈 | K-Nearest Neighbors (KNN) | 84.82% |
+| 🥉 | Support Vector Machine (SVM) | 84.82% |
+| 4 | Logistic Regression | 84.64% |
 
-<br>
-The Decision Tree model provides a strong predictive tool for determining launch success. This project successfully demonstrates an end-to-end data science workflow, from data collection and cleaning to building an interactive dashboard and a predictive machine learning model.
+---
+
+## 🚀 How to Run the Project
+
+### Prerequisites
+* Python 3.7+
+* Libraries: `pandas`, `numpy`, `scikit-learn`, `dash`, `plotly`, `folium`
+
+### Installation
+1.  **Clone the repo:**
+    ```bash
+    git clone [https://github.com/Mohan-wraith/SpaceX-Falcon-9-Landing-Prediction.git](https://github.com/Mohan-wraith/SpaceX-Falcon-9-Landing-Prediction.git)
+    ```
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  **Run the Dashboard:**
+    ```bash
+    python app.py
+    ```
+    *Open `http://127.0.0.1:8050` in your browser.*
+
+---
+
+## 👨‍💻 Author
+
+**Mohan-wraith**
+* [GitHub Profile](https://github.com/Mohan-wraith)
+* [LinkedIn](https://linkedin.com/in/your-linkedin-url) *(Optional: Add your link here)*
+
+---
 
 ### Acknowledgments
-This is a portfolio project completed as the final capstone for the **IBM Data Science Professional Certificate** on Coursera.
+* Completed as part of the **IBM Data Science Professional Certificate** Capstone.
