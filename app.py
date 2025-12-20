@@ -136,4 +136,5 @@ def update_scattergraph(site_dropdown, payload_slider):
 # Run the app
 if __name__ == '__main__':
     # FIXED: Use host='0.0.0.0' for cloud deployment
-    app.run_server(host='0.0.0.0', port=10000)
+    app.run(host='0.0.0.0', port=10000)
+  
