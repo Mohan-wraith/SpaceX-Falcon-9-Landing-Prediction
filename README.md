@@ -98,7 +98,7 @@ The **Decision Tree Classifier** outperformed other models, achieving the highes
 
 **Mohan-wraith**
 * [GitHub Profile](https://github.com/Mohan-wraith)
-* [LinkedIn](https://linkedin.com/in/your-linkedin-url) *(Optional: Add your link here)*
+* [LinkedIn](https://www.linkedin.com/in/mohan-devendra/)
 
 ---
 
